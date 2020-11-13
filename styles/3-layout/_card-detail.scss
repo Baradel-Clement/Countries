@@ -1,0 +1,111 @@
+.countries-cards.card-detail {
+    width: 1280px;
+    height: 401px;
+    margin-top: 221px;
+}
+
+.country-card.card-detail-out, .search-filter.card-detail-out,
+.country-card.card-detail > .country-card-desc {
+    display: none;
+}
+
+.country-card.card-detail {
+    width: 100%;
+    height: 100%;
+    @include flex(flex, row, space-between, center);
+    position: relative;
+    z-index: 3;
+    box-shadow: none;
+    transition: box-shadow 0s;
+    cursor: default;
+}
+
+.country-card.card-detail:hover, .country-card.card-detail.dark-mode:hover {
+    transform: scale(1);
+    box-shadow: none;
+}
+
+.country-card.card-detail > .country-card-img {
+    width: 560px;
+    height: 401px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0s;
+    border-radius: 15px;
+}
+
+.country-card-desc-detail.active {
+    @include flex(flex, column, flex-start, flex-start);
+    width: 598px;
+    height: 323px;
+}
+
+.detail-wrap-title {
+    margin-bottom: 23px;
+}
+
+.detail-desc-wrap {
+    @include flex(flex, row, space-between, flex-start);
+    width: 100%;
+    height: auto;
+    margin-bottom: 68px;
+}
+
+.detail-desc-wrap-left {
+    width: 345px;
+}
+
+.back-button {
+    @include absolute-el(-80px, unset, unset, 0px)
+}
+
+@media screen and (max-width: 1300px) {
+    .countries-cards.card-detail {
+        width: 320px;
+        height: 709px;
+        margin-top: 136px;
+    }
+    
+    .country-card.card-detail {
+        @include flex(flex, column, space-between, center);
+        z-index: 3;
+    }
+    
+    .country-card.card-detail > .country-card-img {
+        width: 320px;
+        height: 229px;
+        border-radius: 5px;
+    }
+    
+    .country-card-desc-detail.active {
+        @include flex(flex, column, flex-start, flex-start);
+        width: 308px;
+        height: 436px;
+    }
+    
+    .detail-wrap-title {
+        margin-bottom: 16px;
+    }
+    
+    .detail-desc-wrap {
+        @include flex(flex, column, space-between, flex-start);
+        width: 100%;
+        height: 288px;
+        margin-bottom: 34px;
+    }
+    
+    .detail-desc-wrap-left {
+        width: 100%;
+        height: 160px;
+    }
+
+    .detail-desc-wrap-right {
+        width: 100%;
+        height: 96px;
+    }
+    
+    .back-button {
+        @include absolute-el(-80px, unset, unset, 0px)
+    }
+}

@@ -1,0 +1,188 @@
+.countries-cards {
+    width: 1280px;
+    height: 747px;
+    @include flex(flex, row wrap, space-between, center);
+    margin-top: 48px;
+}
+
+.country-card {
+    width: 264px;
+    height: 336px;
+    @include flex(flex, column, space-between, center);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    transform: scale(1);
+}
+
+.country-card:hover {
+    transform: scale(1.10);
+    box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.5);
+}
+
+.country-card.dark-mode {
+    box-shadow: 0px 0px 10px 1px rgba(200,200,200,0.5);
+}
+
+.country-card.dark-mode:hover {
+    transform: scale(1.10);
+    box-shadow: 0px 0px 10px 6px rgba(200,200,200,0.5);
+}
+
+.country-card-img {
+    width: 100%;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: transparent;
+    transition: 0s;
+}
+
+.country-card-img.germany {
+    background-image: url(/assets/german.svg);
+}
+
+.country-card-img.usa {
+    background-image: url(/assets/usa.svg);
+}
+
+.country-card-img.brazil {
+    background-image: url(/assets/brazil.svg);
+}
+
+.country-card-img.iceland {
+    background-image: url(/assets/iceland.svg);
+}
+
+.country-card-img.afghanistan {
+    background-image: url(/assets/afghanistan.svg);
+}
+
+.country-card-img.islands {
+    background-image: url(/assets/islands.svg);
+}
+
+.country-card-img.albania {
+    background-image: url(/assets/albania.svg);
+}
+
+.country-card-img.algeria {
+    background-image: url(/assets/algeria.svg);
+}
+
+.country-card-desc {
+    width: 100%;
+    height: 177px;
+    padding: 24px 24px 46px;
+    @include flex(flex, column, flex-start, flex-start);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #FFF;
+    
+}
+
+.country-card-desc.dark-mode {
+    background: $light-dark;
+}
+
+.card-countries-title {
+    margin-bottom: 16px;
+}
+
+.card-desc {
+    margin-top: 8px;
+}
+
+.country-card-desc-detail {
+    display: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .countries-cards {
+        width: 603px;
+        height: 1569px;
+        @include flex(flex, row wrap, space-between, center);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .countries-cards {
+        width: 264px;
+        height: 2968px;
+        @include flex(flex, column, space-between, center);
+        margin-top: 32px;
+    }
+    
+    .country-card {
+        width: 264px;
+        height: 336px;
+        @include flex(flex, column, space-between, center);
+        box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+    }
+    
+    .country-card-img {
+        width: 100%;
+        height: 160px;
+        background-size: cover;
+        background-position: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .country-card-img.germany {
+        background-image: url(/assets/german.svg);
+    }
+    
+    .country-card-img.usa {
+        background-image: url(/assets/usa.svg);
+    }
+    
+    .country-card-img.brazil {
+        background-image: url(/assets/brazil.svg);
+    }
+    
+    .country-card-img.iceland {
+        background-image: url(/assets/iceland.svg);
+    }
+    
+    .country-card-img.afghanistan {
+        background-image: url(/assets/afghanistan.svg);
+    }
+    
+    .country-card-img.islands {
+        background-image: url(/assets/islands.svg);
+    }
+    
+    .country-card-img.albania {
+        background-image: url(/assets/albania.svg);
+    }
+    
+    .country-card-img.algeria {
+        background-image: url(/assets/algeria.svg);
+    }
+    
+    .country-card-desc {
+        width: 100%;
+        height: 177px;
+        padding: 24px 24px 46px;
+        @include flex(flex, column, flex-start, flex-start);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: #FFF;
+    }
+    
+    .country-card-desc.dark-mode {
+        background: $light-dark;
+    }
+    
+    .card-countries-title {
+        margin-bottom: 16px;
+    }
+    
+    .card-desc {
+        margin-top: 8px;
+    }
+}

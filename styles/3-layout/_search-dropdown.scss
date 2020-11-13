@@ -1,0 +1,41 @@
+.search-filter {
+    margin-top: 48px;
+    width: 1280px;
+    height: 56px;
+    @include flex(flex, row, space-between, flex-start);
+}
+
+.search {
+    position: relative;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .search-filter {
+        width: 603px;
+    }
+
+    .search {
+        width: 343px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-filter {
+        width: 92%;
+        max-width: 343px;
+        height: 136px;
+        @include flex(flex, column, space-between, flex-start);
+    }
+    
+    .search {
+        position: relative;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
