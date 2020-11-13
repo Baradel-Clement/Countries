@@ -1,7 +1,6 @@
 .countries-cards {
     width: 1280px;
-    height: 747px;
-    @include flex(flex, row wrap, space-between, center);
+    @include flex(flex, row wrap, space-between, flex-start);
     margin-top: 48px;
 }
 
@@ -103,7 +102,7 @@
 @media screen and (max-width: 1300px) {
     .countries-cards {
         width: 603px;
-        height: 1569px;
+        height: auto;
         @include flex(flex, row wrap, space-between, center);
     }
 }
@@ -111,7 +110,7 @@
 @media screen and (max-width: 768px) {
     .countries-cards {
         width: 264px;
-        height: 2968px;
+        height: auto;
         @include flex(flex, column, space-between, center);
         margin-top: 32px;
     }

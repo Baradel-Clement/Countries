@@ -32,272 +32,40 @@
             </div>
         </div>
     </div>
-    <div class="countries-cards">
-        
+    <div id="countriesCards" class="countries-cards">
         <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img germany"></span>
+            <span class="country-card-img"></span>
             <div class="country-card-desc">
-                <p class="card-countries-title">Germany</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">81,770,900</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Europe</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Berlin</span></p>
+                <p class="card-countries-title country-name"></p>
+                <p class="card-desc bold600">Population:<span class="card-desc population"></span></p>
+                <p class="card-desc bold600">Region:<span class="card-desc region"></span></p>
+                <p class="card-desc bold600">Capital:<span class="card-desc capital"></span></p>
             </div>
             <div class="country-card-desc-detail">
                 <a class="back-button bold300" href="/index.html">Back</a>
                 <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
+                    <p class="detail-title country-name"></p>
                 </div>
                 <div class="detail-desc-wrap">
                     <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
+                        <p class="detail-desc bold600">Native Name: <span id="native-name" class="card-desc"></span></p>
+                        <p class="detail-desc bold600">Population: <span class="card-desc population"></span></p>
+                        <p class="detail-desc bold600">Region: <span class="card-desc region"></span></p>
+                        <p class="detail-desc bold600">Sub Region: <span id="sub-region" class="card-desc"></span></p>
+                        <p class="detail-desc bold600">Capital: <span class="card-desc capital"></span></p>
                     </div>
                     <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
+                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc" id="domain"></span></p>
+                        <p class="detail-desc bold600">Currencies: <span id="currencies" class="card-desc"></span></p>
+                        <p class="detail-desc bold600">Languages: <span id="languages" class="card-desc"></span></p>
                     </div>
                 </div>
                 <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
+                    <p class="detail-desc bold700">Border Countries: <span id="border-countries" class="card-desc"></span></p>
                 </div>
             </div>
         </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img usa"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">United States of America</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">323,947,000</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Americas</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Washington, D.C.</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img brazil"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Brazil</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">206,135,893</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Americas</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Brasília</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img iceland"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Iceland</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">334,300</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Europe</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Reykjavík</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img afghanistan"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Afghanistan</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">27,657,145</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Asia</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Kabul</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img islands"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Åland Islands</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">28,875</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Europe</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Mariehamn</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img albania"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Albania</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">2,886,026</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Europe</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Tirana</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France          Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="country-card" onclick="onClickCountryCard(this)">
-            <span class="country-card-img algeria"></span>
-            <div class="country-card-desc">
-                <p class="card-countries-title">Algeria</p>
-                <p class="card-desc bold600">Population:<span class="card-desc">40,400,000</span></p>
-                <p class="card-desc bold600">Region:<span class="card-desc">Africa</span></p>
-                <p class="card-desc bold600">Capital:<span class="card-desc">Algiers</span></p>
-            </div>
-            <div class="country-card-desc-detail">
-                <a class="back-button bold300" href="/index.html">Back</a>
-                <div class="detail-wrap-title">
-                    <p class="detail-title">Belgium</p>
-                </div>
-                <div class="detail-desc-wrap">
-                    <div class="detail-desc-wrap-left">
-                        <p class="detail-desc bold600">Native Name: <span class="card-desc">België</span></p>
-                        <p class="detail-desc bold600">Population: <span class="card-desc">11,319,511</span></p>
-                        <p class="detail-desc bold600">Region: <span class="card-desc">Europe</span></p>
-                        <p class="detail-desc bold600">Sub Region: <span class="card-desc">Western Europe</span></p>
-                        <p class="detail-desc bold600">Capital: <span class="card-desc">Brussels</span></p>
-                    </div>
-                    <div class="detail-desc-wrap-right">
-                        <p class="detail-desc bold600">Top Level Domain: <span class="card-desc">.be</span></p>
-                        <p class="detail-desc bold600">Currencies: <span class="card-desc">Euro</span></p>
-                        <p class="detail-desc bold600">Languages: <span class="card-desc">Dutch, French, German</span></p>
-                    </div>
-                </div>
-                <div class="detail-border-wrap">
-                    <p class="detail-desc bold700">Border Countries: <span class="card-desc">France                Germany          Netherlands</span></p>
-                </div>
-            </div>
-        </div>
-
     </div>
+    <div class="blank-card"></div>
 </body>
 </html>

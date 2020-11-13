@@ -8,10 +8,69 @@ async function getCountries() {
 }
 
 function displayCountries(countries) {
-    const countryCard = document.querySelectorAll('.country-card');
+    const countriesCards = document.getElementById('countriesCards');
+    countriesCards.innerHTML = ''
     countries.forEach(country => {
-        
-    })
+        const countryEl = document.createElement('div');
+        countryEl.classList.add('country-card');
+        countryEl.setAttribute('onclick', 'onClickCountryCard(this)');
+        countryEl.innerHTML = `
+        <span class="country-card-img"></span>
+        <div class="country-card-desc">
+            <p class="card-countries-title country-name"></p>
+            <p class="card-desc bold600">Population:<span class="card-desc population"></span></p>
+            <p class="card-desc bold600">Region:<span class="card-desc region"></span></p>
+            <p class="card-desc bold600">Capital:<span class="card-desc capital"></span></p>
+        </div>
+        <div class="country-card-desc-detail">
+            <a class="back-button bold300" href="/index.html">Back</a>
+            <div class="detail-wrap-title">
+                <p class="detail-title country-name"></p>
+            </div>
+            <div class="detail-desc-wrap">
+                <div class="detail-desc-wrap-left">
+                    <p class="detail-desc bold600">Native Name: <span id="native-name" class="card-desc"></span></p>
+                    <p class="detail-desc bold600">Population: <span class="card-desc population"></span></p>
+                    <p class="detail-desc bold600">Region: <span class="card-desc region"></span></p>
+                    <p class="detail-desc bold600">Sub Region: <span id="sub-region" class="card-desc"></span></p>
+                    <p class="detail-desc bold600">Capital: <span class="card-desc capital"></span></p>
+                </div>
+                <div class="detail-desc-wrap-right">
+                    <p class="detail-desc bold600">Top Level Domain: <span class="card-desc" id="domain"></span></p>
+                    <p class="detail-desc bold600">Currencies: <span id="currencies" class="card-desc"></span></p>
+                    <p class="detail-desc bold600">Languages: <span id="languages" class="card-desc"></span></p>
+                </div>
+            </div>
+            <div class="detail-border-wrap">
+                <p class="detail-desc bold700">Border Countries: <span id="border-countries" class="card-desc"></span></p>
+            </div>
+        </div>
+        `;
+        countriesCards.appendChild(countryEl)
+    });
+    // Adjust height of container
+    const countriesCardsLengthNum = 411 * (Math.round(countries.length / 4));
+    const countriesCardsLength = countriesCardsLengthNum.toString();
+    countriesCards.style.height = countriesCardsLength + "px"
+
+    //Blank card
+    const blankCard = document.createElement('div');
+    blankCard.classList.add('blank-card');
+    let i = 0
+    if ((countries.length % 4) == 1) {
+        countriesCards.appendChild(blankCard);
+        console.log(1)
+    } else if ((countries.length % 4) == 2) {
+        while (i != 2) {
+            countriesCards.appendChild(blankCard);
+        }
+        console.log(2)
+    } else if ((countries.length % 4) == 3) {
+        countriesCards.appendChild(blankCard);
+        countriesCards.appendChild(blankCard);
+        countriesCards.appendChild(blankCard);
+        console.log(3)
+    }
 }
 
 

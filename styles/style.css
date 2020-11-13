@@ -731,7 +731,6 @@ nav {
 
 .countries-cards {
   width: 1280px;
-  height: 747px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -742,9 +741,9 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-top: 48px;
 }
 
@@ -877,7 +876,7 @@ nav {
 @media screen and (max-width: 1300px) {
   .countries-cards {
     width: 603px;
-    height: 1569px;
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -897,7 +896,7 @@ nav {
 @media screen and (max-width: 768px) {
   .countries-cards {
     width: 264px;
-    height: 2968px;
+    height: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1185,5 +1184,11 @@ nav {
     bottom: unset;
     left: 0px;
   }
+}
+
+.blank-card {
+  width: 264px;
+  height: 336px;
+  background: transparent;
 }
 /*# sourceMappingURL=style.css.map */
