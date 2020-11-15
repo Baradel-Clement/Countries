@@ -1,42 +1,141 @@
-getCountries();
+let darkMode  = localStorage.getItem("darkMode")
+localStorage.setItem('darkMode', 'dark-mode');
 
- async function getCountries() {
-    const res = await fetch('https://restcountries.eu/rest/v2/all');
-    const countries = await res.json();
+getCountries(false, "Filter by Region");
+
+
+const enableDarkMode = () => {
+    const dropdownTitle = document.querySelector('.dropdown-title');
+    const body = document.querySelector('body');
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const dropdownContent = document.querySelector('div.dropdown-content');
+    const searchBar = document.getElementById('search-bar');
+    const glass = document.getElementById('glass');
+    const allDarkMode = [dropdownTitle, body, header, nav, dropdownContent, searchBar, glass]
+    const dropdownFilters = document.querySelectorAll('.dropdown-filter');
+    const countryCardDesc = document.querySelectorAll('.country-card-desc');
+    const countryCard = document.querySelectorAll('.country-card');
+    const backButton = document.querySelectorAll('.back-button');
+    countryCardDesc.forEach(element => element.classList.add('dark-mode'));
+    countryCard.forEach(element => element.classList.add('dark-mode'));
+    allDarkMode.forEach(element => element.classList.add('dark-mode'));
+    dropdownFilters.forEach(element => element.classList.add('dark-mode'));
+    backButton.forEach(element => element.classList.add('dark-mode'));
+    localStorage.setItem("darkMode", "enabled");
+}
+
+const disableDarkMode = () => {
+    const dropdownTitle = document.querySelector('.dropdown-title');
+    const body = document.querySelector('body');
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const searchBar = document.getElementById('search-bar');
+    const glass = document.getElementById('glass');
+    const allDarkMode = [dropdownTitle, body, header, nav, dropdownContent, searchBar, glass]
+    const dropdownFilters = document.querySelectorAll('.dropdown-filter');
+    const countryCardDesc = document.querySelectorAll('.country-card-desc');
+    const countryCard = document.querySelectorAll('.country-card');
+    const backButton = document.querySelectorAll('.back-button');
+    countryCardDesc.forEach(element => element.classList.remove('dark-mode'));
+    countryCard.forEach(element => element.classList.remove('dark-mode'));
+    allDarkMode.forEach(element => element.classList.remove('dark-mode'));
+    dropdownFilters.forEach(element => element.classList.remove('dark-mode'));
+    backButton.forEach(element => element.classList.remove('dark-mode'));
+    localStorage.setItem("darkMode", null);
+}
+
+if (darkMode == "enabled") {
+    enableDarkMode();
+}
+
+function togglingDarkMode() {
+    darkMode = localStorage.getItem('darkMode');
+    if (darkMode != "enabled") {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+}
+
+function reloadCountries() {
+    const dropdownTitle = document.querySelector('.dropdown-title').innerHTML;
+    let filterOnOff = false;
+    if (dropdownTitle == "Africa" || dropdownTitle == "Americas" ||
+    dropdownTitle == "Asia" || dropdownTitle == "Europe" ||
+    dropdownTitle == "Oceania") {
+       filterOnOff = true;
+       getCountries(filterOnOff, dropdownTitle);
+    } else {
+        getCountries(filterOnOff, "Filter by Region");
+    }
+}
+
+ async function getCountries(filterOnOff, region, query) {
+     let res;
+     let countries;
+     if ((query == null || query == undefined || query == '') && filterOnOff == false) {
+        res = await fetch(`https://restcountries.eu/rest/v2/all`);
+        countries = await res.json();
+     } else if (filterOnOff == true && (query == null || query == undefined)) {
+        query = '';
+        res = await fetch(`https://restcountries.eu/rest/v2/region/${region}`);
+        countries = await res.json();
+     } else {
+        res = await fetch(`https://restcountries.eu/rest/v2/name/${query}`);
+        countries = await res.json();
+     }
 
     displayCountries(countries)
 }
 
-function populationComma(str, n) {
-    var ret = [];
-    var i;
-    var len;
+function joinObjectsNames(data) {
+    let res = [];
+    let i = 0;
+    while (i < 7) {
+        try {
+            res.push(' ' + data[i].name)
+        } catch (error) {
 
-    for(len = str.length, i = len; i > 0; i--) {
-        ret.push(str.substr(i, n))
-    }
-    return ret
+        }
+        i++;
+    } 
+    return res
 }
 
 function displayCountries(countries) {
+    darkMode = localStorage.getItem('darkMode');
     const countriesCards = document.getElementById('countriesCards');
     countriesCards.innerHTML = '';
+    let borders = [];
     countries.forEach(country => {
         const countryEl = document.createElement('div');
         countryEl.classList.add('country-card');
+        let classDarkMode = ''
+        if (darkMode == 'enabled') {
+            countryEl.classList.add('dark-mode');
+            classDarkMode = 'dark-mode'
+        } else {
+            countryEl.classList.remove('dark-mode')
+        }
         countryEl.setAttribute('onclick', 'onClickCountryCard(this)');
         let countryPopulation = (country.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        let curr = country.currencies.forEach(element =>{ const la =  element.name})
+        let countryCurrencies = joinObjectsNames(country.currencies);
+        let countryLanguages= joinObjectsNames(country.languages);
+        countryEl.id = country.alpha3Code;
+        country.alpha3Code = country.name;
+        borders.push(country.borders)
         countryEl.innerHTML = `
-        <span style="background-image: url(${country.flag}); background-size: 100%; background-repeat: no-repeat;" class="country-card-img"></span>
-        <div class="country-card-desc">
+        <span style="background-image: url(${country.flag}); background-size: 100%; background-repeat: no-repeat;background-position: center;" class="country-card-img"></span>
+        <div class="country-card-desc ${classDarkMode}">
             <p class="card-countries-title country-name">${country.name}</p>
             <p class="card-desc bold600">Population:<span class="card-desc population"> ${countryPopulation}</span></p>
             <p class="card-desc bold600">Region:<span class="card-desc region"> ${country.region}</span></p>
             <p class="card-desc bold600">Capital:<span class="card-desc capital"> ${country.capital}</span></p>
         </div>
         <div class="country-card-desc-detail">
-            <a class="back-button bold300" href="/index.html">Back</a>
+            <a class="back-button bold300 ${classDarkMode}" href="/index.html">Back</a>
             <div class="detail-wrap-title">
                 <p class="detail-title country-name"> ${country.name}</p>
             </div>
@@ -50,17 +149,18 @@ function displayCountries(countries) {
                 </div>
                 <div class="detail-desc-wrap-right">
                     <p class="detail-desc bold600">Top Level Domain: <span class="card-desc" id="domain"> ${country.topLevelDomain}</span></p>
-                    <p class="detail-desc bold600">Currencies: <span id="currencies" class="card-desc">${country.currencies.forEach(element => element.name)} </span></p>
-                    <p class="detail-desc bold600">Languages: <span id="languages" class="card-desc"> ${country.capital}</span></p>
+                    <p class="detail-desc bold600">Currencies: <span id="currencies" class="card-desc">${countryCurrencies}</span></p>
+                    <p class="detail-desc bold600">Languages: <span id="languages" class="card-desc"> ${countryLanguages}</span></p>
                 </div>
             </div>
             <div class="detail-border-wrap">
-                <p class="detail-desc bold700">Border Countries: <span id="border-countries" class="card-desc">${country.capital}</span></p>
+                <p class="detail-desc bold700">Border Countries: <span id="border-countries" class="card-desc">${country.borders}</span></p>
             </div>
         </div>
         `;
-        countriesCards.appendChild(countryEl)
+        countriesCards.appendChild(countryEl);
     });
+
 
     // Adjust height of container
 
@@ -124,7 +224,7 @@ function onClickCountryCard(card) {
     const searchFilter = document.querySelector('.search-filter')
     const countryDetail = card.lastElementChild;
     
-    countriesCards.style.height = "686px"
+    countriesCards.style.height = "686px";
     if (!(card.classList.contains('card-detail'))) {
         countryCard.forEach(element => element.classList.toggle('card-detail-out'));
         card.classList.remove('card-detail-out')
@@ -135,30 +235,8 @@ function onClickCountryCard(card) {
     }
 }
 
-//Dark mode
-function darkMode(darkModeBtn) {
-    const dropdownTitle = document.querySelector('.dropdown-title');
-    const body = document.querySelector('body');
-    const header = document.querySelector('header');
-    const nav = document.querySelector('nav');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const searchBar = document.getElementById('search-bar');
-    const glass = document.getElementById('glass')
-    const allDarkMode = [dropdownTitle, body, header, nav, dropdownContent, searchBar, glass]
-    const dropdownFilters = document.querySelectorAll('.dropdown-filter');
-    const countryCardDesc = document.querySelectorAll('.country-card-desc')
-    const countryCard = document.querySelectorAll('.country-card')
-    const backButton = document.querySelectorAll('.back-button')
 
-    countryCardDesc.forEach(element => element.classList.toggle('dark-mode'));
-    countryCard.forEach(element => element.classList.toggle('dark-mode'));
-    allDarkMode.forEach(element => element.classList.toggle('dark-mode'));
-    dropdownFilters.forEach(element => element.classList.toggle('dark-mode'));
-    backButton.forEach(element => element.classList.toggle('dark-mode'));
-}
-
-
-
+//dropdown button
 function dropdownBtn() {
     const dropdownContent = document.querySelector('.dropdown-content');
     const dropdownTitle = document.querySelector('.dropdown-title')

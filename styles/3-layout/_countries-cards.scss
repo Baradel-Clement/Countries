@@ -40,6 +40,10 @@
     transition: 0s;
 }
 
+.country-card.dark-mode > .country-card-img {
+    background: #2b3844;
+}
+
 .country-card-desc {
     width: 100%;
     height: 177px;
