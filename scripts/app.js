@@ -1,3 +1,5 @@
+//Dark mode
+
 let darkMode  = localStorage.getItem("darkMode")
 localStorage.setItem('darkMode', 'dark-mode');
 
@@ -17,6 +19,7 @@ const enableDarkMode = () => {
     const countryCardDesc = document.querySelectorAll('.country-card-desc');
     const countryCard = document.querySelectorAll('.country-card');
     const backButton = document.querySelectorAll('.back-button');
+
     countryCardDesc.forEach(element => element.classList.add('dark-mode'));
     countryCard.forEach(element => element.classList.add('dark-mode'));
     allDarkMode.forEach(element => element.classList.add('dark-mode'));
@@ -38,6 +41,7 @@ const disableDarkMode = () => {
     const countryCardDesc = document.querySelectorAll('.country-card-desc');
     const countryCard = document.querySelectorAll('.country-card');
     const backButton = document.querySelectorAll('.back-button');
+
     countryCardDesc.forEach(element => element.classList.remove('dark-mode'));
     countryCard.forEach(element => element.classList.remove('dark-mode'));
     allDarkMode.forEach(element => element.classList.remove('dark-mode'));
@@ -45,11 +49,12 @@ const disableDarkMode = () => {
     backButton.forEach(element => element.classList.remove('dark-mode'));
     localStorage.setItem("darkMode", null);
 }
-
+// dark-mode even after refreshing
 if (darkMode == "enabled") {
     enableDarkMode();
 }
 
+// onclick function toggling dark mode
 function togglingDarkMode() {
     darkMode = localStorage.getItem('darkMode');
     if (darkMode != "enabled") {
@@ -58,6 +63,8 @@ function togglingDarkMode() {
         disableDarkMode();
     }
 }
+
+// Filter Countries per region
 
 function reloadCountries() {
     const dropdownTitle = document.querySelector('.dropdown-title').innerHTML;
@@ -72,14 +79,15 @@ function reloadCountries() {
     }
 }
 
- async function getCountries(filterOnOff, region, query) {
+// fetch api 
+
+async function getCountries(filterOnOff, region, query) {
      let res;
      let countries;
      if ((query == null || query == undefined || query == '') && filterOnOff == false) {
         res = await fetch(`https://restcountries.eu/rest/v2/all`);
         countries = await res.json();
      } else if (filterOnOff == true && (query == null || query == undefined)) {
-        query = '';
         res = await fetch(`https://restcountries.eu/rest/v2/region/${region}`);
         countries = await res.json();
      } else {
@@ -89,6 +97,8 @@ function reloadCountries() {
 
     displayCountries(countries)
 }
+
+// Commas after each data
 
 function joinObjectsNames(data) {
     let res = [];
@@ -108,7 +118,6 @@ function displayCountries(countries) {
     darkMode = localStorage.getItem('darkMode');
     const countriesCards = document.getElementById('countriesCards');
     countriesCards.innerHTML = '';
-    let borders = [];
     countries.forEach(country => {
         const countryEl = document.createElement('div');
         countryEl.classList.add('country-card');
@@ -125,7 +134,6 @@ function displayCountries(countries) {
         let countryLanguages= joinObjectsNames(country.languages);
         countryEl.id = country.alpha3Code;
         country.alpha3Code = country.name;
-        borders.push(country.borders)
         countryEl.innerHTML = `
         <span style="background-image: url(${country.flag}); background-size: 100%; background-repeat: no-repeat;background-position: center;" class="country-card-img"></span>
         <div class="country-card-desc ${classDarkMode}">
@@ -244,6 +252,8 @@ function dropdownBtn() {
     dropdownContent.classList.toggle('active')
 }
 
+
+//function toggling dropdown
 function dropdownFilter(data) {
     const dropdownTitle = document.querySelector('.dropdown-title')
     if (data.innerHTML == dropdownTitle.innerHTML) {
